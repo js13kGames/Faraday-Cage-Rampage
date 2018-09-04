@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FcR</title>
+<style type="text/css">
+body {
+background: #1A1A1AFF;
+/*background: black;*/
+margin-top: 0px;
+margin-left: 0px;
+overflow: hidden;
+cursor: crosshair;
+}
+canvas {      
+image-rendering: optimizeSpeed;
+image-rendering: -moz-crisp-edges;
+image-rendering: -webkit-optimize-contrast;
+image-rendering: -o-crisp-edges;
+image-rendering: pixelated;
+-ms-interpolation-mode: nearest-neighbor;
+padding: 0;
+margin: auto;
+display: block;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+}
+.stats {
+position: relative;
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+margin: 2px;
+z-index: 10;
+}
+.stats, .modal {
+user-select: none;
+color: #E1DCDCFF;
+font: serif;
+text-shadow: -1px 1px #C36278FF;
+}
+#scrapCount {
+display: flex;
+margin: 1px;
+}
+#life {
+display: flex;
+margin: 1px;
+}
+.label {
+display: flex;
+margin: 1px;
+padding-left: 10px;
+}
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+padding-top: 30px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color:
+background-color:
+}
+.modal-content {
+background-color: black;
+background-color: rgba(0,0,0,0.8);
+color: white;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+max-width: 60vw;
+}
+
+#buildingCage {
+/*display: none;*/
+position: fixed;
+font-size: 24px;
+color: red;
+padding-top: 46px;
+top: 6px;
+}
+#levelMsg {
+padding-top: 24px;
+position: fixed;
+font-size: 24px;
+top: 6px;
+}
+#intro {
+display: block;
+}
+#stats {
+display: none;
+}
+</style>
+</head>
+<body oncontextmenu="return false;">
+<span class="stats" id="stats">
+<span class="label">SCRAPS:</span><span id="scrapCount">0</span>
+<span class="label">LIFE:</span><span id="life"></span><span>%</span>
+<span class="label">ENERGY:</span><span id="tinfoilHatEnergy">100</span><span>%</span>
+</span>
+<span class="stats">
+<span id="buildingCage"></span>
+<div id="levelMsg"></div>
+</span>
+<span id="intro" class="modal">
+<div class="modal-content" style="text-align: left;">
+<h3 style="text-align: center;">Faraday cage <span style="color: red;">Rampage</span></h3>
+<p>Controls:</p>
+<div>w, a, s, d to move,</div>
+<div>Left Mouse Button or &larr; &rarr; &uarr; &darr; to shoot</div>
+<p>Destroy drones with the energy you accumulate on your Tin Foil Hat, collect 10 scraps to build faraday cages around each antenna and get 'em all offline!</p>
+<p id="hermitPlace"></p>
+<p>PRESS ANY KEY TO START</p>
+</div>
+</span>
+<div id="board" class="modal">
+<div class="modal-content">
+<p id="boardHeader"></p>
+<table>
+<tr><td id="scrapPts" style="text-align: right;">100</td><td> pts</td><td id="scrapQtd" style="padding-left: 26px;">0</td><td>&times; scrap</td></tr>
+<tr><td id="dronePts" style="text-align: right;">10000</td><td> pts</td><td id="droneQtd" style="padding-left: 26px;">0</td><td>&times; drone</td></tr>
+<tr><td id="cagePts" style="text-align: right;">0</td><td> pts</td><td id="cageQtd" style="padding-left: 26px;">0</td><td>&times; cage</td></tr>
+</table>
+<br>
+<p>
+<span>TOTAL: </span><span id="totalPts">0</span><span> pts</span>
+</p>
+<p>
+<span id="accScore"></span>
+</p>
+<br>
+<br>
+<div id="pressAnyKey"></div>
+</div>
+</div>
+<!--BUILD_JS-->
+<script type="text/javascript" src="jsfxr.js"></script>
+<script type="text/javascript" src="audio.js"></script>
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="sprites.js"></script>
+<script type="text/javascript" src="factories.js"></script>
+<script type="text/javascript" src="sprites.floor.js"></script>
+<script type="text/javascript" src="sprites.player.js"></script>
+<script type="text/javascript" src="sprites.tile.js"></script>
+<script type="text/javascript" src="sprites.wallshadow.js"></script>
+<script type="text/javascript" src="sprites.enemy.eye.js"></script>
+<script type="text/javascript" src="sprites.antenna.js"></script>
+<script type="text/javascript" src="sprites.scrap.js"></script>
+<script type="text/javascript" src="sprites.js"></script>
+<script type="text/javascript" src="collisions.js"></script>
+<script type="text/javascript" src="stats.js"></script>
+
+<script type="text/javascript" src="loop.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="testData.js"></script>
+<script type="text/javascript" src="input.js"></script>
+</body>
+<script type="text/javascript" src="record.js"></script>
+
+</html>
