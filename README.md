@@ -1,5 +1,8 @@
 # Faraday cage Rampage
 
+![alt text](https://github.com/arturaugusto/Faraday-cage-Rampage/raw/master/screen_big.png)
+
+
 js13KGames entry for 2018. Theme: Offline
 
 A bullet hell game about a hermit disrupting telecommunication system antennas.
